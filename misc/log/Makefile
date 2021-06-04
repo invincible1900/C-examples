@@ -1,3 +1,2 @@
 all: main.c
-        gcc main.c -g
-~
+	gcc main.c -g

@@ -1,3 +1,4 @@
+// https://www.gnu.org/software/libc/manual/html_node/Error-Codes.html
 #include <stdio.h>
 #include <errno.h>
 #include <string.h>
@@ -38,10 +39,23 @@ int bar(){
 	return -EINVAL;
 }
 
+void print_err(){
+        char buf[10];
+        for(int i = EPERM; i<= EHWPOISON; i++){
+                sprintf(buf, "[%d]", i);
+		errno = i;
+                perror(buf);
+        }
+}
+
 int main(){
 	int ret = 0;
+
+	print_err();
+
 	SAFE_1(foo());
 	SAFE_2(bar());
+	
 }
 
 

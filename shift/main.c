@@ -7,6 +7,13 @@ int main(){
 	printf("0x%x, %d\n", x, x);	
 	printf("0x%x, %d\n", y, y);	
 	printf("0x%x, %d\n", z, z);	
+
+	// overflow
+	printf("0x%lx\n", 1<<32);
+	// fix 1
+	printf("0x%lx\n", 1UL<<32);
+	// fix 2
+	printf("0x%lx\n", (long)1<<32);
 }
 
 /*
@@ -35,4 +42,7 @@ gcc main.c -g
 0xe, 14
 0xfffffffe, -2
 0xe, 14
+0x0
+0x100000000
+0x100000000
  * */

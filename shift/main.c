@@ -14,6 +14,11 @@ int main(){
 	printf("0x%lx\n", 1UL<<32);
 	// fix 2
 	printf("0x%lx\n", (long)1<<32);
+
+	// overflow
+	printf("oo 0x%lx\n", (1UL << 64));
+	int width = 64;
+	printf("oo2 0x%lx\n", (1UL << width));
 }
 
 /*
@@ -45,4 +50,6 @@ gcc main.c -g
 0x0
 0x100000000
 0x100000000
+0x0
+0x1
  * */
